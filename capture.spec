@@ -16,6 +16,7 @@ BuildRequires:	libptp2-devel
 BuildRequires:  libusb-devel
 BuildRequires:  libreadline-devel
 BuildRequires:  ncurses-devel
+BuildRequires:	gtk+2-devel
 
 %description
 Canon's digital cameras can all be remote-controlled by a PC via
