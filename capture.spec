@@ -11,7 +11,6 @@ Patch0:		capture-gcc4.patch
 #Patch0:		ptp-utils.patch
 #Patch1:		viewfinder.patch
 Url:		http://capture.sourceforge.net/
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	libptp2-devel
 BuildRequires:  libusb-devel
 BuildRequires:  libreadline-devel
