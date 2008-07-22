@@ -2,7 +2,7 @@
 Summary:	Command line tools to remote control Canon digital cameras
 Name:		capture
 Version:	1.0.4
-Release:	%mkrel 1
+Release:	%mkrel 3
 License:	GPL
 Group:		Graphics
 
