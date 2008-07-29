@@ -1,22 +1,23 @@
-%define cvsversion 20070329
+%define cvsversion 20071123
+
 Summary:	Command line tools to remote control Canon digital cameras
 Name:		capture
 Version:	1.0.4
-Release:	%mkrel 3
+Release:	%mkrel 4
 License:	GPL
 Group:		Graphics
-
-Source:		http://heanet.dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}-cvs-%{cvsversion}.tar.bz2
+URL:		http://capture.sourceforge.net/
+Source0:	http://heanet.dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}-cvs-%{cvsversion}.tar.gz
 Patch0:		capture-gcc4.patch
+Patch1:		capture-no-Werror.diff
 #Patch0:		ptp-utils.patch
 #Patch1:		viewfinder.patch
-Url:		http://capture.sourceforge.net/
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	libptp2-devel
 BuildRequires:  libusb-devel
 BuildRequires:  libreadline-devel
 BuildRequires:  ncurses-devel
 BuildRequires:	gtk+2-devel
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Canon's digital cameras can all be remote-controlled by a PC via
@@ -41,14 +42,17 @@ switch your camera into PTP mode if it has an appropriate entry in its
 automatically.
 
 %prep
+
 %setup -q -n %{name}-%{version}-cvs-%{cvsversion}
 %patch0 -p1 -b .gcc4
+%patch1 -p0
 
 %build
-%make
+%make RPM_OPT_FLAGS="%{optflags}"
 
 %install
 rm -rf %buildroot
+
 install -m755 capture -D %buildroot%{_bindir}/capture
 install -m755 job -D %buildroot%{_bindir}/capture-job
 install -m755 example.sh -D %buildroot%{_bindir}/capture-example.sh
