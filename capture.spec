@@ -6,7 +6,7 @@ Version:	1.0.4
 Release:	%mkrel 7
 License:	GPL
 Group:		Graphics
-URL:		http://capture.sourceforge.net/
+URL:		https://capture.sourceforge.net/
 Source0:	http://heanet.dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}-cvs-%{cvsversion}.tar.gz
 Patch0:		capture-gcc4.patch
 Patch1:		capture-no-Werror.diff
